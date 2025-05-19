@@ -37,7 +37,7 @@ class PolinomioDeNewton():
        # Hacer el polinomio de Newton en una función lambda evaluable. 
         polinomio_lambda = sp.lambdify((self.x), self.polinomio_de_newton(x_list, y_list))
         
-        new_x = np.linspace(0, 100, 50) #[new_x_ for new_x_ in range(0, 100, 2)]
+        new_x = [new_x_ for new_x_ in range(0, 100, 2)]
         new_y = [polinomio_lambda(xi) for xi in new_x]
         
         return new_x, new_y

@@ -2,6 +2,7 @@ import numpy as np
 from utils.read_csv import read_csv
 from utils.canvas import Canvas
 from polinomio_de_newton import PolinomioDeNewton
+from utils.generate_csv import generate_csv
 
 """
   Implementa la funcion de Interpolacion de lagrange paga generar un nuevo dataset
@@ -22,12 +23,15 @@ def generate_dataset(x_values, y_values):
   #-------------------- INSERTE IMPLEMENTACION AQUI ------------------#
   newton = PolinomioDeNewton()
   
-  return newton.interpolacion(x_values, y_values) # nuevo dataset, con valores de x e y
+  return newton.interpolar(x_values, y_values) #newton.interpolacion(x_values, y_values) # nuevo dataset, con valores de x e y
   #-------------------- INSERTE IMPLEMENTACION AQUI ------------------#
 
 
 def main():
   x_values, y_values = read_csv("data.csv")
+
+  # Generar un archivo CSV con valores aleatorios 
+  #generate_csv(lambda x: x**3 + 4*x**2 + 3, (0, 100), num_points=50, filename="data.csv")
 
   new_x, new_y = generate_dataset(x_values, y_values)
   
